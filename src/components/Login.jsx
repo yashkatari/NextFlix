@@ -21,7 +21,8 @@ function Login() {
     setLoading(true);
     setError(""); // Reset error state on new login attempt
     try {
-      const res = await fetch("/api/users/login", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/users/login`, {
+
         method: "POST",
         headers: {
           "Content-Type": "application/json",

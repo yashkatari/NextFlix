@@ -10,7 +10,7 @@ const ManageUsers = () => {
   const fetchUsers = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:5000/api/users');
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/users`);
       setUsers(response.data);
       setLoading(false);
     } catch (error) {
@@ -22,7 +22,7 @@ const ManageUsers = () => {
   // Delete user by ID
   const deleteUser = async (userId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/users/${userId}`);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/users/${userId}`);
       setUsers(users.filter(user => user._id !== userId)); // Update state to remove the deleted user
     } catch (error) {
       console.error("Error deleting user:", error);
