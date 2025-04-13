@@ -47,7 +47,7 @@ const CreateMovie = () => {
     };
 
     try {
-      const response = await fetch('/api/users/insert', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/insert`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
